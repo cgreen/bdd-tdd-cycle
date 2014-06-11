@@ -6,8 +6,8 @@ class Movie < ActiveRecord::Base
     %w(G PG PG-13 NC-17 R)
   end
 
-  def self.same_director
-    Movie.find_by_director(Movie.find(id))
+  def self.same_director(id)
+    Movie.where(director: Movie.find(id).director)
   end
 
 end

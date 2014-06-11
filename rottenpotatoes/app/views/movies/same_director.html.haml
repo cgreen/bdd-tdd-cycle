@@ -1,3 +1,7 @@
 -# in app/views/movies/same_director.html.haml
 
 %h2 Movies with the same director
+
+%ul
+  - @movies.each do |movie|
+    %li= movie.title

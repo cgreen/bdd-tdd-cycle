@@ -66,6 +66,7 @@ class MoviesController < ApplicationController
 
   def same_director
     movie = Movie.find(params[:id])
+    debugger
     @movies = Movie.same_director(movie.id)
   end
 
