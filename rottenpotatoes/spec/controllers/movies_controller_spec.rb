@@ -1,13 +1,12 @@
-require 'movies_controller'
 require 'spec_helper'
 
 
 describe MoviesController do
-  describe 'finding movies with the same director' do
-    it 'should call the model method that finds movies by director' do
-      Movie.should_receive(:find_by_director).with('Joe Director')
-      post :same_director, { director: 'Joe Director' }
+  describe 'find movies with the same director' do
+    it 'should call the model method that finds movies with the same director' do
+      movie = Movie.create({title: 'Bad Movie', rating: 'PG-13', release_date: DateTime.now, director: 'Michael Bay'})
+      Movie.should_receive(:same_director).with(movie.id)
+      get :same_director, id: movie.id
     end
-    it 'should display the results'
   end
 end
